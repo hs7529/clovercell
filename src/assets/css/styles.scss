@@ -1,0 +1,48 @@
+@import "./reset.scss";
+@import "./media-screens.scss";
+@import "./fonts.scss";
+
+/* DEFAULT */
+
+/* LAYOUT */
+
+/* SCREENS */
+
+/* COMPONENTS */
+
+body {
+  background-color: rgb(184, 232, 184);
+  font-size: 100px;
+  font-weight: 600;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.wrap > div {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+}
+
+.wrap a {
+  color: white;
+  text-decoration: none;
+}
+
+.wrap a:hover {
+  color: teal;
+  font-size: 140px;
+}

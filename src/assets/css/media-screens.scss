@@ -1,0 +1,63 @@
+/* 모바일 (스마트폰) */
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .header .logo {
+    font-size: 20px;
+  }
+
+  .header .nav ul li a {
+    font-size: 16px;
+  }
+}
+
+/* 태블릿 (작은 태블릿 및 큰 스마트폰) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 0 20px;
+  }
+
+  .header .logo {
+    font-size: 24px;
+  }
+
+  .header .nav ul li a {
+    font-size: 18px;
+  }
+}
+
+/* 태블릿 (대부분의 태블릿) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    width: 85%;
+    padding: 0 30px;
+  }
+
+  .header .logo {
+    font-size: 26px;
+  }
+
+  .header .nav ul li a {
+    font-size: 20px;
+  }
+}
+
+/* 데스크톱 */
+@media (min-width: 1025px) {
+  .container {
+    width: 80%;
+    margin: auto;
+  }
+
+  .header .logo {
+    font-size: 30px;
+  }
+
+  .header .nav ul li a {
+    font-size: 22px;
+  }
+}
