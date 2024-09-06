@@ -1,3 +1,4 @@
 email,recipient_name,person_in_charge,mail_subject,cc,bcc
-hs7529@gmail.com,TEST,Michael Yoon,[Business Proposal] Nextwave Music Record,,
-hswon@clovercell.com,TEST,Michael Yoon,[Business Proposal] Nextwave Music Record,,
+hs7529@gmail.com,clovercell,won,smtp test,,
+hswon@clovercell.com,clovercell,won,smtp test,,
+
