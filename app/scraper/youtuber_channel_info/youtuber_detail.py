@@ -91,12 +91,14 @@ def load_urls_from_csv(csv_filename):
     return urls
 
 # Load URLs from an external CSV file
-csv_input_filename = "./app/py/youtuber/csv/youtube_channels_input.csv"
+csv_input_filename = "./app/scraper/youtuber_channel_info/csv/youtube_channels_input.csv"
+
 urls = load_urls_from_csv(csv_input_filename)
 
 
 # CSV 파일 이름 설정
-csv_output_filename = "./app/py/youtuber/csv/youtube_channels_info.csv"
+csv_output_filename = "./app/scraper/youtuber_channel_info/csv/youtube_channels_info.csv"
+
 
 # Initialize the browser
 chrome_options = Options()

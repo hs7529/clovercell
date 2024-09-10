@@ -36,3 +36,22 @@ for link in shorts_links:
 
 # Selenium 드라이버 종료
 driver.quit()
+
+
+
+# 유튜브 영상정보 가져오기
+from pytube import YouTube
+
+url = 'https://youtu.be/TtDeUBKpa6c'
+
+
+yt = YouTube(url)
+
+print("제목 : ", yt.title)
+print("길이 : ", yt.length)
+print("게시자 : ", yt.author)
+print("게시날짜 : ", yt.publish_date)
+print("조회수 : ", yt.views)
+print("키워드 : ", yt.keywords)
+print("설명 : ", yt.description)
+print("썸네일 : ", yt.thumbnail_url)

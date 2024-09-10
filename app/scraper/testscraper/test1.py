@@ -6,8 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-
-#드라이버 설정
+# 드라이버 설정
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--incognito")
 chrome_options.add_experimental_option("detach", True)
@@ -17,9 +16,8 @@ chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
 # URL 입력
-driver.get('https://www.youtube.com/shorts')
+driver.get('https://www.youtube.com/?gl=us/shorts')
 wait = WebDriverWait(driver, 10)
-
 
 # 다음 쇼츠로 이동하는 함수
 def go_to_next_shorts():
@@ -31,31 +29,41 @@ def go_to_next_shorts():
     except Exception as e:
         print(f"Error clicking the next button: {e}")
 
-# 쇼츠 요소들을 찾고 is-active 속성이 있는지 확인하는 함수
+# 쇼츠 요소들을 찾고 href 값을 리스트로 모으는 함수
 def find_element():
+    all_hrefs = []  # 전체 href를 모으는 리스트
+    
     try:
-        for i in range(4):
-            shorts = wait.until(EC.presence_of_all_elements_located((By.ID, f"{i}")))
-            active_shorts = [short for short in shorts if short.get_attribute('is-active')]
+        for i in range(10):
+            current_hrefs = []  # i 값에 따라 리스트 초기화
+
+            # XPath로 요소를 기다림
+            shorts = wait.until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="channel-info"]/a')))
             
-            if active_shorts:  # 활성화된 shorts가 있는 경우 출력
-                for short in active_shorts:
-                    print(f"{i}번째 : {short.text}")
-            else:
-                print(f"{i}번째 : 비활성화")
-                
-            go_to_next_shorts()
-            time.sleep(3)
-            # print(short.text)
-            # shorts = video_render
-            # time.sleep(5)
-            # active_shorts = [short for short in shorts if short.get_attribute('is-active')]
+            if shorts and isinstance(shorts, list):
+                for short in shorts:
+                    href = short.get_attribute('href')  # href 속성 가져오기
+                    current_hrefs.append(href)  # 현재 i번째의 href 값 리스트에 추가
             
-            # for short in active_shorts:
-                
+            # i번째가 끝난 후 한 번에 출력
+            if current_hrefs:
+                print(f"{i}번째 활성화된 링크들: {current_hrefs}")
+            
+            # 전체 리스트에 합침
+            all_hrefs.extend(current_hrefs)
+            
+            go_to_next_shorts()  # 다음 요소로 이동하는 함수
+            time.sleep(3)  # 3초 대기
+        
     except Exception as e:
         print(f"Error: {e}")
         pass
+    
+    return all_hrefs
 
-
-find_element()
+# 함수 실행
+try:
+    all_hrefs_collected = find_element()
+    print(f"모든 href 링크들: {all_hrefs_collected}")  # 전체 리스트 출력
+finally:
+    driver.quit()
