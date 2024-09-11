@@ -601,7 +601,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-//*[@id="channel-info"]/a
 
 
 # find_element 함수 정의

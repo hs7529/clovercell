@@ -16,7 +16,7 @@ chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
 # URL 입력
-driver.get('https://www.youtube.com/?gl=us/shorts')
+driver.get('https://www.youtube.com/?gl=US/shorts')
 wait = WebDriverWait(driver, 10)
 
 # 다음 쇼츠로 이동하는 함수
