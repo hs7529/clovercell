@@ -21,7 +21,6 @@ driver.get('https://www.youtube.com/shorts')
 
 # 명시적 대기 설정 (첫 번째 쇼츠 로드)
 wait = WebDriverWait(driver, 10)
-wait.until(EC.presence_of_element_located((By.TAG_NAME, 'ytd-reel-video-renderer')))
 
 def check_is_active():
     try:
@@ -71,7 +70,7 @@ finally:
     driver.quit()
 
 
-
+cfToBox-item-txt
 
 
 
